@@ -1,0 +1,9 @@
+- Main page
+- Ranks
+- Skins
+- Forum
+- Status
+- Releases
+- Downloads
+- More
+- Api
