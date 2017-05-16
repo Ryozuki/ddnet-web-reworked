@@ -2,6 +2,16 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/bootstrap-grid.min.css')
+    link(rel='stylesheet', href='/css/bootstrap-reeboot.min.css')
+    // Custom style goes on this file
     link(rel='stylesheet', href='/css/style.css')
   body
     block content
+    block scripts
+      script(src="/js/bootstrap.min.js")
+      script(src="/js/jquery-3.2.1.min.js")
+      script(src="/js/bootstrap.min.js")
+      // Custom javascript goes here
+      script(src="/js/custom.js")
