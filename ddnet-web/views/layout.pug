@@ -1,14 +1,54 @@
+mixin addvideo(videolink)
+  .embed-responsive.embed-responsive-16by9
+    iframe.embed-responsive-item(src=videolink, allowfullscreen)
+
 doctype html
 html
   head
     title= title
+    link(rel='alternate', type='application/atom+xml', title='DDNet News', href='/feed/')
     link(rel='stylesheet', href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/css/bootstrap-grid.min.css')
     link(rel='stylesheet', href='/css/bootstrap-reeboot.min.css')
     // Custom style goes on this file
     link(rel='stylesheet', href='/css/style.css')
   body
-    block content
+    block navbar
+      nav.navbar.sticky-top.navbar-toggleable-md.navbar.navbar-inverse.bg-inverse
+        button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        a.navbar-brand(href='/') DDraceNetwork
+        #navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto
+            li.nav-item
+              a.nav-link(href='/status') Status
+            li.nav-item
+              a.nav-link(href='/ranks') Ranks
+            li.nav-item
+              a.nav-link(href='/releases') Releases
+            li.nav-item
+              a.nav-link(href='/tournaments') Tournaments
+            li.nav-item
+              a.nav-link(href='/skin') Skin Database
+            li.nav-item
+              a.nav-link(href='/download') Downloads
+            li.nav-item
+              a.nav-link(href='/statistics') Statistics
+            li.nav-item
+              a.nav-link(href='#') Forum
+            li.nav-item
+              a.nav-link(href='https://wiki.ddnet.tw') Wiki
+          form.form-inline.my-2.my-lg-0
+            input.form-control.mr-sm-2(type='text', placeholder='Search')
+            button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+    
+    .container
+      block content
+    br
+    block footer
+      footer.footer
+        .container
+          span.text-muted DDraceNetwork &copy; 2013-2017
     block scripts
       script(src="/js/jquery-3.2.1.min.js")
       script(src="/js/tether.min.js")

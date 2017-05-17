@@ -1,5 +1,55 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  img.img-fluid(src="/img/ddnet.png")
+  h2 DDRace Servers and much more!
+  p
+  | DDraceNetwork (DDNet) is an actively maintained version of DDRace, a 
+  a(href='https://www.teeworlds.com/') Teeworlds
+  |  modification with a unique cooperative gameplay. Help each other play through 
+  a(href='/releases/') custom maps
+  |  with up to 64 players, compete against the best in 
+  a(href='/tournaments/') international tournaments
+  | , design your 
+  a(href='/howto/') own maps
+  | , or run your 
+  a(href='/settingscommands/') own server
+  | . The 
+  a(href='/status/') official servers
+  |  are located in Germany, Russia, USA, Canada, China, Chile, Brazil, South Africa and Australia. All 
+  a(href='/ranks/') ranks
+  |  made on official servers are available worldwide and you can 
+  a(href='/players/milk') collect points
+  | !
+  hr
+  .row
+    .col-md-8
+      +addvideo(video_link)
+    .col-md-4
+      img.img-fluid(src="/img/www.ddnet.tw.png")
+      img.img-fluid.mt-2(src="/img/locations.png")
+  
+    if OS.indexOf("Windows") != -1
+      a.font-weight-bold(href=("/downloads/DDNet-"+version+"-win32.zip"))
+        img.img-fluid(src="/img/download.svg" style="width:5%;")
+        em
+          strong= download_text
+    if OS.indexOf("Linux") != -1
+      a.font-weight-bold(href=("/downloads/DDNet-"+version+"-linux_x86_64.tar.xz"))
+        img.img-fluid(src="/img/download.svg")
+        em
+          strong= download_text
+    if OS.indexOf("Mac") != -1
+      a(href=("/downloads/DDNet-"+version+"-osx.dmg"))
+        img.img-fluid.w-50(src="/img/download.svg")
+        em
+          strong= download_text
+  a.text-muted(href="/downloads") 
+    em Other Systems and Versions
+
+  hr
+
+  h2 News
+  p TODO: add dynamic news
+  p Your OS is: #{OS}
+  
