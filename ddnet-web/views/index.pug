@@ -1,15 +1,23 @@
 extends layout
 
 mixin GetDownload
-  if OS.indexOf("Windows") != -1
+  if useragent.os.toString().indexOf("Windows") != -1 && (useragent.source.toString().indexOf("WOW64") != -1 || useragent.source.toString().indexOf("Win64") != -1)
+    a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-win64.zip"))
+      i.fa.fa-download(aria-hidden='true')
+      |  #{download_text}
+  else if useragent.os.toString().indexOf("Windows") != -1
     a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-win32.zip"))
       i.fa.fa-download(aria-hidden='true')
       |  #{download_text}
-  if OS.indexOf("Linux") != -1
+  if useragent.os.toString().indexOf("Linux") != -1 && (useragent.os.toString().indexOf("x86_64") != -1 || useragent.os.toString().indexOf("i686 on x86_64") != -1)
     a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-linux_x86_64.tar.xz"))
       i.fa.fa-download(aria-hidden='true')
       |  #{download_text}
-  if OS.indexOf("Mac") != -1
+  else if useragent.os.toString().indexOf("Linux") != -1
+    a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-linux_x86.tar.xz"))
+      i.fa.fa-download(aria-hidden='true')
+      |  #{download_text}
+  if useragent.os.toString().indexOf("Mac") != -1
     a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-osx.dmg"))
       i.fa.fa-download(aria-hidden='true')
       |  #{download_text}

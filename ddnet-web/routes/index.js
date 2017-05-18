@@ -6,10 +6,11 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   var agent = useragent.parse(req.headers['user-agent']);
+  console.log(agent);
   res.render('index', { 
     title: constants.title,
     version: constants.version,
-    OS: agent.os.toString(),
+    useragent: agent,
     video_link: constants.video,
     download_text: "Download DDraceNetwork Client & Server "
  });
