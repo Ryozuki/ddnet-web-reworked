@@ -38,6 +38,17 @@ html
               a.nav-link(href='#') Forum
             li.nav-item
               a.nav-link(href='https://wiki.ddnet.tw') Wiki
+            li.nav-item.dropdown
+              a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href="!", data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                | More
+              .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                a.dropdown-item(href='#') Server Features
+                a.dropdown-item(href='#') Client Features
+                a.dropdown-item(href='#') How to map
+                a.dropdown-item(href='#') Useful binds
+                a.dropdown-item(href='#') Settings &amp; Commands
+                a.dropdown-item(href='/staff') Staff &amp; Contact
+                a.dropdown-item(href='/funding') Funding
           form.form-inline.my-2.my-lg-0
             input.form-control.mr-sm-2(type='text', placeholder='Search')
             button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search

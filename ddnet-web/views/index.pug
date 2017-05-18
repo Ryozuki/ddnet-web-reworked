@@ -1,5 +1,13 @@
 extends layout
 
+mixin GetDownload
+  if OS.indexOf("Windows") != -1
+    a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-win32.zip"))= download_text
+  if OS.indexOf("Linux") != -1
+    a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-linux_x86_64.tar.xz"))= download_text
+  if OS.indexOf("Mac") != -1
+    a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-osx.dmg"))= download_text
+
 block content
   img.img-fluid(src="/img/ddnet.png")
   h2 DDRace Servers and much more!
@@ -28,27 +36,19 @@ block content
     .col-md-4
       img.img-fluid(src="/img/www.ddnet.tw.png")
       img.img-fluid.mt-2(src="/img/locations.png")
-  
-    if OS.indexOf("Windows") != -1
-      a.font-weight-bold(href=("/downloads/DDNet-"+version+"-win32.zip"))
-        img.img-fluid(src="/img/download.svg" style="width:5%;")
-        em
-          strong= download_text
-    if OS.indexOf("Linux") != -1
-      a.font-weight-bold(href=("/downloads/DDNet-"+version+"-linux_x86_64.tar.xz"))
-        img.img-fluid(src="/img/download.svg")
-        em
-          strong= download_text
-    if OS.indexOf("Mac") != -1
-      a(href=("/downloads/DDNet-"+version+"-osx.dmg"))
-        img.img-fluid.w-50(src="/img/download.svg")
-        em
-          strong= download_text
-  a.text-muted(href="/downloads") 
-    em Other Systems and Versions
-
+    .col-md-8.mt-2
+        .btn-group.btn-group-lg(role='group', aria-label='download buttons')
+          +GetDownload()
+          .btn-group(role='group')
+            button#btnGroupDrop1.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              | More links &amp; Social Networks
+            .dropdown-menu(aria-labelledby='btnGroupDrop1')
+              a.dropdown-item(href="/downloads") Other Systems and Versions
+              a.dropdown-item(href='/tools') Tools
+              a.dropdown-item(href='https://github.com/ddnet/ddnet' target="_blank") Github
+              a.dropdown-item(href='https://discordapp.com/invite/WJ9Xe7n' target="_blank") Discord
+              a.dropdown-item(href='http://webchat.quakenet.org/?channels=ddnet&uio=d4' target="_blank") IRC-Chat
   hr
-
   h2 News
   p TODO: add dynamic news
   p Your OS is: #{OS}
