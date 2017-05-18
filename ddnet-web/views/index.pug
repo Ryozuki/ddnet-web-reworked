@@ -2,11 +2,17 @@ extends layout
 
 mixin GetDownload
   if OS.indexOf("Windows") != -1
-    a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-win32.zip"))= download_text
+    a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-win32.zip"))
+      i.fa.fa-download(aria-hidden='true')
+      |  #{download_text}
   if OS.indexOf("Linux") != -1
-    a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-linux_x86_64.tar.xz"))= download_text
+    a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-linux_x86_64.tar.xz"))
+      i.fa.fa-download(aria-hidden='true')
+      |  #{download_text}
   if OS.indexOf("Mac") != -1
-    a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-osx.dmg"))= download_text
+    a.btn.btn-primary(href=("/downloads/DDNet-"+version+"-osx.dmg"))
+      i.fa.fa-download(aria-hidden='true')
+      |  #{download_text}
 
 block content
   img.img-fluid(src="/img/ddnet.png")
@@ -45,7 +51,9 @@ block content
             .dropdown-menu(aria-labelledby='btnGroupDrop1')
               a.dropdown-item(href="/downloads") Other Systems and Versions
               a.dropdown-item(href='/tools') Tools
-              a.dropdown-item(href='https://github.com/ddnet/ddnet' target="_blank") Github
+              a.dropdown-item(href='https://github.com/ddnet/ddnet' target="_blank")
+                i.fa.fa-github.fa-lg(aria-hidden="true")
+                |  Github
               a.dropdown-item(href='https://discordapp.com/invite/WJ9Xe7n' target="_blank") Discord
               a.dropdown-item(href='http://webchat.quakenet.org/?channels=ddnet&uio=d4' target="_blank") IRC-Chat
   hr

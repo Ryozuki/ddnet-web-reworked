@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     title: constants.title,
     version: constants.version,
     OS: agent.os.toString(),
-    video_link: 'https://www.youtube.com/embed/sbYJ4UeFUPU?autoplay=0&hd=1&iv_load_policy=3',
+    video_link: constants.video,
     download_text: "Download DDraceNetwork Client & Server "
  });
 });
