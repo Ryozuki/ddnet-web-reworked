@@ -7,3 +7,4 @@
 - Downloads
 - More
 - Api
+- Show small image on mobile
